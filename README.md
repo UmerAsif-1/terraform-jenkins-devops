@@ -1,34 +1,43 @@
 ### [Terraform Jenkins DevOps](https://github.com/UmerAsif-1/terraform-jenkins-devops)
-- **Description:**  
-  Project Overview:  
-  This project automates the creation of an AWS infrastructure using Terraform, setting up a web server with Jenkins and integrating SonarQube for static code analysis. Docker is used for containerization, and Trivy is employed for security scanning. The infrastructure includes security groups, EC2 instances, and essential services, making it a fully automated DevOps pipeline ready for CI/CD integration.
 
-  **Technologies Used:**
-  - AWS (EC2, Security Groups)
-  - Terraform (for Infrastructure as Code)
-  - Jenkins (CI/CD)
-  - Docker (Containerization)
-  - SonarQube (Static Code Analysis)
-  - Trivy (Container Security Scanning)
+#### **Project Overview**
+This project automates the setup of a **DevOps pipeline** in AWS using **Terraform, Jenkins, SonarQube, Docker, and Trivy**. It provisions an **EC2 instance (T2 Large Ubuntu)**, configures a secure infrastructure, and integrates **CI/CD, static code analysis, and container security scanning**. The setup ensures efficient resource utilization while maintaining security best practices.
 
-  **Setup Instructions:**
-  1. Clone the repository.
-  2. Set up AWS credentials.
-  3. Run `terraform init` to initialize Terraform.
-  4. Execute `terraform apply` to provision the infrastructure.
-  5. Use `./install.sh` to set up Jenkins, Docker, and other tools.
+#### **Why T2 Large Ubuntu Instance?**
+A **T2 Large instance (2 vCPUs, 8GB RAM, 30GB storage)** was selected because:
+- Jenkins requires sufficient CPU and memory for smooth execution of CI/CD jobs.
+- SonarQube is resource-intensive, needing extra RAM for analysis.
+- Docker containers, including SonarQube and Trivy, need stable performance.
+- It balances cost and performance effectively for small to medium-scale projects.
 
-  **Features & Benefits:**
-  - Automated infrastructure provisioning in AWS.
-  - CI/CD pipeline integration using Jenkins.
-  - Container security scanning with Trivy.
-  - Static code analysis using SonarQube.
-  - Secure and scalable web server setup.
+#### **Technologies Used**
+- **Terraform** – Infrastructure as Code (IaC) to automate AWS resource provisioning.
+- **AWS EC2 & Security Groups** – Compute instances and network security.
+- **Jenkins** – CI/CD automation.
+- **SonarQube** – Static code analysis.
+- **Docker** – Containerization for Jenkins and SonarQube.
+- **Trivy** – Container security scanning.
 
-  **Future Improvements:**
-  - Add automatic scaling for EC2 instances.
-  - Integrate more security tools like AWS GuardDuty.
-  - Implement CloudWatch for monitoring and logging.
+#### **Project Features**
+- **Automated AWS Infrastructure:** Terraform provisions EC2 and security configurations.
+- **CI/CD Pipeline:** Jenkins automates builds and deployments.
+- **Static Code Analysis:** SonarQube scans code for bugs and vulnerabilities.
+- **Security Integration:** Trivy scans Docker containers for security threats.
+- **Scalable & Secure:** Security groups restrict access, ensuring a controlled environment.
 
-  **Why This Project?**
-  This project showcases my skills in AWS cloud infrastructure, Terraform, CI/CD, containerization with Docker, and security best practices. It is designed to automate the deployment process and ensure secure, scalable infrastructure for continuous integration.
+#### **Setup Instructions**
+1. Clone the repository.
+2. Configure AWS credentials.
+3. Run `terraform init` to initialize Terraform.
+4. Apply the infrastructure with `terraform apply`.
+5. Execute `./install.sh` to install Jenkins, Docker, SonarQube, and Trivy.
+6. Access Jenkins via `http://<EC2-Public-IP>:8080`.
+7. SonarQube is available at `http://<EC2-Public-IP>:9000`.
+
+#### **Future Improvements**
+- Implement **auto-scaling** for EC2 instances.
+- Integrate **CloudWatch** for monitoring and logging.
+- Enhance security with AWS **GuardDuty and IAM role-based access**.
+
+#### **Why This Project?**
+This project demonstrates **DevSecOps best practices** by automating infrastructure provisioning while integrating **continuous integration, security scanning, and static analysis**. It ensures a robust, scalable, and secure **DevOps pipeline** for efficient software delivery.
